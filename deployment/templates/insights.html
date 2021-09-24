@@ -1,0 +1,36 @@
+{% include "layout/header.html" %}
+{% include "layout/navbar.html" %}
+
+<main>
+
+    <div class="container-md">
+      <div class="row mb-5 mt-5">
+        <div class="col-md" style="padding-left: 2vw; padding-right: 2vw">
+            <h1 class="mb-5 text-center">Insights from Exploratory Data Analysis</h1>
+            <div id="chart1" class="chart1"></div>
+            <div id="chart2" class="chart2"></div>
+            <div id="chart3" class="chart3"></div>
+            <div id="chart4" class="chart4"></div>
+        </div>
+      </div>
+    </div>
+</main>
+
+{% include "layout/footnotes.html" %}
+{% include "layout/footer.html" %}
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+
+  var graph1 = {{ graph1JSON | safe }};
+  Plotly.plot('chart1', graph1, {});
+
+  var graph2 = {{ graph2JSON | safe }};
+  Plotly.plot('chart2', graph2, {});
+
+  var graph3 = {{ graph3JSON | safe }};
+  Plotly.plot('chart3', graph3, {});
+
+  var graph4 = {{ graph4JSON | safe }};
+  Plotly.plot('chart4', graph4, {});
+</script>
